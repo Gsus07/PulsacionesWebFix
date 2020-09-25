@@ -13,20 +13,13 @@ export class PersonaRegistroComponent implements OnInit {
 
   constructor(private personaService: PersonaService) { }
 
-  calcularpulsacion(){
-    if(this.persona.sexo==="F"){
-      this.persona.pulsacion=(220 - this.persona.edad)/10;
-    }
-    else{
-      this.persona.pulsacion=(210 - this.persona.edad)/10;
-    }
-  }
+  
   ngOnInit(): void {
     this.persona;
   }
   
   add(): void {
-    alert('Se agrego nueva persona' + JSON.stringify(this.persona));
+    alert('Se agrego nueva persona' + JSON.stringify(this.persona && this.persona.calcularpulsacion()));
     this.personaService.post(this.persona);
   }
 
